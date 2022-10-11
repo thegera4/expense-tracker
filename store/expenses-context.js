@@ -5,7 +5,7 @@ const DUMMY_EXPENSES = [
     id: 'e1',
     description: 'A pair of shoes',
     amount: 59.99,
-    date: new Date('2021-12-19'),
+    date: new Date('2022-10-05'),
   },
   {
     id: 'e2',
@@ -17,7 +17,7 @@ const DUMMY_EXPENSES = [
     id: 'e3',
     description: 'Some bananas',
     amount: 5.99,
-    date: new Date('2021-12-01'),
+    date: new Date('2022-10-07'),
   },
   {
     id: 'e4',
