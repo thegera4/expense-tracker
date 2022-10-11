@@ -5,6 +5,6 @@ Expense tracker mobile app with react-native
   <h4>This simple app allows you to add new expenses in order to keep a personal record of expenses. The app is not finished yet....</h4>
 </div>
 
-![recent](https://user-images.githubusercontent.com/84020433/194986657-d5d491cd-23ef-4fe9-82ac-106f075536f3.JPG)
-![all](https://user-images.githubusercontent.com/84020433/194986660-43398d54-ed85-4a9e-81b0-0b03fe717796.JPG)
-![add](https://user-images.githubusercontent.com/84020433/194986663-adb330b7-f5cf-4d15-9b0c-95e496790799.JPG)
+![recent](https://user-images.githubusercontent.com/84020433/194986841-fea3d304-1a0a-4cbb-85c0-1d76c15b2d7d.JPG)
+![all](https://user-images.githubusercontent.com/84020433/194986842-771b7150-8e56-40b0-9445-4981ffecf314.JPG)
+![add](https://user-images.githubusercontent.com/84020433/194986845-83492775-d88b-4f36-8024-47163130261b.JPG)
