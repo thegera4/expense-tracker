@@ -1,10 +1,9 @@
 # expense-tracker
-Expense tracker mobile app with react-native
 
-<div>
-  <h4>This simple app allows you to add new expenses in order to keep a personal record of expenses. The app is not finished yet....</h4>
-</div>
+This simple app allows you to add new expenses, delete expenses, and update old expenses in order to keep a personal record. Below you can see a demo:
 
-![recent](https://user-images.githubusercontent.com/84020433/194986841-fea3d304-1a0a-4cbb-85c0-1d76c15b2d7d.JPG)
-![all](https://user-images.githubusercontent.com/84020433/194986842-771b7150-8e56-40b0-9445-4981ffecf314.JPG)
-![add](https://user-images.githubusercontent.com/84020433/194986845-83492775-d88b-4f36-8024-47163130261b.JPG)
+https://user-images.githubusercontent.com/84020433/195463623-745043a9-b9d2-4555-b1a8-5d0b1fda29e9.mp4
+
+At the end, we have this information in the database which is in firebase from Google
+
+![db](https://user-images.githubusercontent.com/84020433/195463707-ee60fd44-fc4f-4877-8929-e2f5f5b47b7f.JPG)
