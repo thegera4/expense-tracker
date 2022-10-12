@@ -7,12 +7,10 @@ import { useSelector } from 'react-redux';
 function RecentExpenses() {
   //const expensesCtx = useContext(ExpensesContext);
   const expenses = useSelector((state) => state.expenses.expenses);
-
   //const recentExpenses = expensesCtx.expenses.filter((expense) => {
   const recentExpenses = expenses.filter((expense) => {
     const today = new Date();
     const date7DaysAgo = getDateMinusDays(today, 7);
-
     return expense.date >= date7DaysAgo && expense.date <= today;
   });
 

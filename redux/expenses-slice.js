@@ -79,13 +79,13 @@ const expensesSlice = createSlice({
       return state;
     },
     updateExpense: (state, action) => {
-      const index = state.expenses.findIndex(
-        (expense) => expense.id === action.payload.id);
+      const index = state.expenses.findIndex((expense) => expense.id === action.payload.id);
+      console.log(action.payload.expenseData);
       state.expenses[index] = {
         ...state.expenses[index],
-        description: action.payload.description,
-        amount: action.payload.amount,
-        date: action.payload.date,
+        description: action.payload.expenseData.description,
+        amount: action.payload.expenseData.amount,
+        date: action.payload.expenseData.date,
       };
       return state;
     }

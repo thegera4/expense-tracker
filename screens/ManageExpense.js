@@ -7,6 +7,7 @@ import { GlobalStyles } from '../constants/styles';
 //import { ExpensesContext } from '../store/expenses-context';
 import { useDispatch, useSelector } from 'react-redux';
 import { addExpense, deleteExpense, updateExpense } from '../redux/expenses-slice';
+import ExpenseForm from '../components/ManageExpense/ExpenseForm';
 
 function ManageExpense({ route, navigation }) {
   //const expensesCtx = useContext(ExpensesContext);
@@ -14,6 +15,7 @@ function ManageExpense({ route, navigation }) {
   const dispatch = useDispatch();
   const editedExpenseId = route.params?.expenseId;
   const isEditing = !!editedExpenseId;
+  const selectedExpense = expenses.find((expense) => expense.id === editedExpenseId);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -31,7 +33,7 @@ function ManageExpense({ route, navigation }) {
     navigation.goBack();
   }
 
-  function confirmHandler() {
+  function confirmHandler(expenseData) {
     if (isEditing) {
       /*expensesCtx.updateExpense(
         editedExpenseId,
@@ -41,37 +43,27 @@ function ManageExpense({ route, navigation }) {
           date: new Date('2022-05-20'),
         }
       );*/
-      dispatch(updateExpense({
-        id: editedExpenseId,
-        description: 'Test!!!!',
-        amount: 29.99,
-        date: new Date('2022-05-20'),
-      }));
+      dispatch(updateExpense({ id: editedExpenseId, expenseData: expenseData }));
     } else {
       /*expensesCtx.addExpense({
         description: 'Test',
         amount: 19.99,
         date: new Date('2022-05-19'),
       });*/
-      dispatch(addExpense({
-        description: 'Test',
-        amount: 19.99,
-        date: new Date('2022-05-19'),
-      }));
+      
+      dispatch(addExpense(expenseData));
     }
     navigation.goBack();
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttons}>
-        <Button style={styles.button} mode="flat" onPress={cancelHandler}>
-          Cancel
-        </Button>
-        <Button style={styles.button} onPress={confirmHandler}>
-          {isEditing ? 'Update' : 'Add'}
-        </Button>
-      </View>
+      <ExpenseForm 
+        defaultValues={selectedExpense}
+        submitButtonLabel={isEditing ? 'Update' : 'Add'}
+        onSubmit={confirmHandler}
+        onCancel={cancelHandler}
+      />
       {isEditing && (
         <View style={styles.deleteContainer}>
           <IconButton
