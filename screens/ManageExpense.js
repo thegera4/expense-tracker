@@ -1,12 +1,17 @@
-import { useContext, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
+//import { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Button from '../components/UI/Button';
 import IconButton from '../components/UI/IconButton';
 import { GlobalStyles } from '../constants/styles';
-import { ExpensesContext } from '../store/expenses-context';
+//import { ExpensesContext } from '../store/expenses-context';
+import { useDispatch, useSelector } from 'react-redux';
+import { addExpense, deleteExpense, updateExpense } from '../redux/expenses-slice';
 
 function ManageExpense({ route, navigation }) {
-  const expensesCtx = useContext(ExpensesContext);
+  //const expensesCtx = useContext(ExpensesContext);
+  const expenses = useSelector((state) => state.expenses.expenses);
+  const dispatch = useDispatch();
   const editedExpenseId = route.params?.expenseId;
   const isEditing = !!editedExpenseId;
 
@@ -17,7 +22,8 @@ function ManageExpense({ route, navigation }) {
   }, [navigation, isEditing]);
 
   function deleteExpenseHandler() {
-    expensesCtx.deleteExpense(editedExpenseId);
+    //expensesCtx.deleteExpense(editedExpenseId);
+    dispatch(deleteExpense(editedExpenseId));
     navigation.goBack();
   }
 
@@ -27,20 +33,31 @@ function ManageExpense({ route, navigation }) {
 
   function confirmHandler() {
     if (isEditing) {
-      expensesCtx.updateExpense(
+      /*expensesCtx.updateExpense(
         editedExpenseId,
         {
           description: 'Test!!!!',
           amount: 29.99,
           date: new Date('2022-05-20'),
         }
-      );
+      );*/
+      dispatch(updateExpense({
+        id: editedExpenseId,
+        description: 'Test!!!!',
+        amount: 29.99,
+        date: new Date('2022-05-20'),
+      }));
     } else {
-      expensesCtx.addExpense({
+      /*expensesCtx.addExpense({
         description: 'Test',
         amount: 19.99,
         date: new Date('2022-05-19'),
-      });
+      });*/
+      dispatch(addExpense({
+        description: 'Test',
+        amount: 19.99,
+        date: new Date('2022-05-19'),
+      }));
     }
     navigation.goBack();
   }

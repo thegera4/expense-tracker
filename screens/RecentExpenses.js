@@ -1,12 +1,15 @@
-import { useContext } from 'react';
+//import { useContext } from 'react';
 import ExpensesOutput from '../components/ExpensesOutput/ExpensesOutput';
-import { ExpensesContext } from '../store/expenses-context';
+//import { ExpensesContext } from '../store/expenses-context';
 import { getDateMinusDays } from '../util/date';
+import { useSelector } from 'react-redux';
 
 function RecentExpenses() {
-  const expensesCtx = useContext(ExpensesContext);
+  //const expensesCtx = useContext(ExpensesContext);
+  const expenses = useSelector((state) => state.expenses.expenses);
 
-  const recentExpenses = expensesCtx.expenses.filter((expense) => {
+  //const recentExpenses = expensesCtx.expenses.filter((expense) => {
+  const recentExpenses = expenses.filter((expense) => {
     const today = new Date();
     const date7DaysAgo = getDateMinusDays(today, 7);
 
