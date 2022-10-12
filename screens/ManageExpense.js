@@ -57,30 +57,36 @@ function ManageExpense({ route, navigation }) {
   }
 
   return (
-    <View style={styles.container}>
-      <ExpenseForm 
-        defaultValues={selectedExpense}
-        submitButtonLabel={isEditing ? 'Update' : 'Add'}
-        onSubmit={confirmHandler}
-        onCancel={cancelHandler}
-      />
-      {isEditing && (
-        <View style={styles.deleteContainer}>
-          <IconButton
-            icon="trash"
-            color={GlobalStyles.colors.error500}
-            size={36}
-            onPress={deleteExpenseHandler}
+      <View style={styles.modal} >
+        <View style={styles.container}>
+          <ExpenseForm 
+            defaultValues={selectedExpense}
+            submitButtonLabel={isEditing ? 'Update' : 'Add'}
+            onSubmit={confirmHandler}
+            onCancel={cancelHandler}
           />
+          {isEditing && (
+            <View style={styles.deleteContainer}>
+              <IconButton
+                icon="trash"
+                color={GlobalStyles.colors.error500}
+                size={36}
+                onPress={deleteExpenseHandler}
+              />
+            </View>
+          )}
         </View>
-      )}
-    </View>
+      </View>
   );
 }
 
 export default ManageExpense;
 
 const styles = StyleSheet.create({
+  modal: {
+    height: '100%',
+    marginTop: 'auto',
+  },
   container: {
     flex: 1,
     padding: 24,
